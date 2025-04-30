@@ -81,10 +81,16 @@ Backend (Django)
 bash
 Copy
 Edit
+```
+
+### Backend (Django)
+```bash
 cd backend
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
+```
+
 Notes
 Ensure CORS is correctly set in Django settings:
 
@@ -97,6 +103,7 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
 ]
+
 🧪 Testing
 Login through the Next.js frontend with a valid admin account
 
