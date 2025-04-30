@@ -1,114 +1,102 @@
-# Club Admin Panel
+
+markdown
+Copy
+Edit
+# Public Speaking Franchise/Club Management System
 
 ## 📌 One-Line Summary
-A full-stack admin panel for managing clubs, members, and admins using Next.js and Django REST Framework.
+A Franchise and Club Management System for a company focused on teaching public speaking.
 
 ---
 
 ## 📖 Project Description
 
-This project is a comprehensive **Club Administration Platform** designed to manage multiple clubs, their respective members, and administrators. It offers an intuitive web interface (built with **Next.js**) backed by a powerful REST API (built using **Django REST Framework**). The system is ideal for educational institutions or organizations that need structured control over club operations, member data, and access management.
+This project is a comprehensive full-stack **Franchise and Club Management System** designed for a public speaking education company. The platform enables smooth administration and monitoring of clubs and franchise centers that operate across different cities and states.
 
-This project provides all essential CRUD (Create, Read, Update, Delete) operations for club entities and their members, with secure, role-based access. Admins can be added or removed, clubs can be registered with detailed information, and members can be updated as per organizational hierarchy.
+It facilitates centralized control over club creation, member registration, and admin assignments, allowing efficient scaling and streamlined data access. Club admins can manage speaker data and organizational details through a secure, role-based interface.
+
+Built using **Next.js** for the frontend and **Django REST Framework** for the backend, this system ensures seamless data handling, modern UI/UX, and secure access control via session-based authentication.
 
 ---
 
 ## ⚙️ Technologies Used
 
 ### Frontend
-- **Next.js** — for building a fast, server-rendered React frontend
-- **React Hooks & Context API** — for state management
-- **Tailwind CSS** — for responsive and clean UI styling (optional but assumed)
+- **Next.js**
+- **React**
+- **Tailwind CSS** (optional)
+- **React Context API**
 
 ### Backend
-- **Django** — as the web framework
-- **Django REST Framework (DRF)** — for API development
-- **Session Authentication** — using Django’s default session-based login system
-- **CORS Headers & CSRF** — for secure cross-origin communication between frontend and backend
+- **Django**
+- **Django REST Framework (DRF)**
+- **SQLite** (default) / **PostgreSQL**
+- **Session Auth + CSRF**
 
 ---
 
 ## 🔐 Features
 
-### 🔒 Authentication
-- Login and Logout using Django session-based authentication
-- Cookie-based session handling with CSRF protection
+### 🔒 Admin Login System
+- Secure login and logout for admins
+- Session & CSRF protected authentication
 
-### 👥 Member Management
-- Add, update, and delete club members
-- Fetch all members or filter them by specific clubs
+### 🏢 Club & Franchise Management
+- Create new clubs with city/state/postal/country details
+- Edit and delete existing clubs
 
-### 🏢 Club Management
-- Create new clubs with details like name, address, city, postal code, etc.
-- List all clubs or update specific ones
-- Delete clubs if needed
+### 👤 Member Handling
+- View all members by club
+- Update member details (e.g., name, club assignment)
+- Search/filter functionality
 
-### 🛡️ Admin Management
-- Add or remove admins
-- View all registered admins
-- Prevent unauthorized access with backend authentication
-
-### 📦 API Routes (Backend)
-- `POST /api/accounts/login/` – Log in an admin
-- `POST /api/accounts/logout/` – Log out
-- `GET /api/accounts/members/` – List members
-- `PUT /api/accounts/members/:username/` – Update a member
-- `POST /api/accounts/clubs/` – Create a club
-- `GET /api/accounts/clubs/` – List all clubs
-- `PUT /api/accounts/clubs/:id/` – Update club info
-- `GET /api/accounts/admins/` – Get all admins
-
-### 🌐 API Requests (Frontend)
-- All requests use the `fetch` API with `credentials: 'include'` to support cookie-based sessions
-- Full error handling and status-based messages
+### 🛡️ Admin Dashboard
+- View and manage all system admins
+- Assign or revoke admin privileges
 
 ---
 
-## 🛠️ Setup Instructions
+## 🧱 API Endpoints
 
-### Prerequisites
-- Node.js (>= 14)
-- Python (>= 3.8)
-- Django and DRF installed (`pip install -r requirements.txt`)
-- A PostgreSQL or SQLite database (optional config)
+- `POST /api/accounts/login/` – Admin login
+- `POST /api/accounts/logout/` – Logout
+- `GET /api/accounts/clubs/` – List all clubs
+- `POST /api/accounts/clubs/` – Add new club
+- `PUT /api/accounts/clubs/:id/` – Update club
+- `GET /api/accounts/members/` – Fetch all members
+- `PUT /api/accounts/members/:username/` – Update member
+- `GET /api/accounts/admins/` – Get admin list
 
-### Frontend (Next.js)
+---
+
+## 🚀 Getting Started
+
+### Frontend Setup
 ```bash
 cd frontend
 npm install
 npm run dev
-Backend (Django)
+Backend Setup
 bash
 Copy
 Edit
-```
-
-### Backend (Django)
-```bash
 cd backend
-python manage.py makemigrations
+pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
-```
-
-Notes
-Ensure CORS is correctly set in Django settings:
-
+Important Django Settings
 python
 Copy
 Edit
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-]
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]
+🧪 Test Workflow
+Log in as an admin.
 
-🧪 Testing
-Login through the Next.js frontend with a valid admin account
+Create a new club using city/state/postal info.
 
-Try creating a new club and adding members
+Add or update members in the club.
 
-Use the developer console to track fetch requests and test error handling
+Assign other users as admins.
 
-Use Django admin panel (/admin) for debugging or superuser actions
+View and test all functionalities in the admin dashboard.
